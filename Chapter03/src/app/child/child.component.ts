@@ -7,18 +7,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  private static instanceCount: number = 0; 
-  instanceId: number; 
-  @Input() myText: string; 
-  @Output() onChildMessage = new EventEmitter<string>();   
-  constructor(){ 
-    ChildComponent.instanceCount += 1; 
-    this.instanceId = ChildComponent.instanceCount; 
-  } 
-  onClick(){ 
-    this.onChildMessage.emit(`Hello from ChildComponent with instance  
-    id: ${this.instanceId}`); 
-  } 
+  private static instanceCount: number = 0;
+  instanceId: number;
+  @Input() myText: string;
+  @Output() onChildMessage = new EventEmitter<string>();
+  constructor() {
+    ChildComponent.instanceCount += 1;
+    this.instanceId = ChildComponent.instanceCount;
+  }
+  onClick() {
+    this.onChildMessage.emit(`Hello from ChildComponent with instance id: ${this.instanceId}`);
+  }
 
   ngOnInit() {
   }
