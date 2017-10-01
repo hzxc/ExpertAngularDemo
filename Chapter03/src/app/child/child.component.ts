@@ -14,6 +14,7 @@ export class ChildComponent implements OnInit {
   constructor() {
     ChildComponent.instanceCount += 1;
     this.instanceId = ChildComponent.instanceCount;
+    this.myText = 'This is the default child component text.'; 
   }
   onClick() {
     this.onChildMessage.emit(`Hello from ChildComponent with instance id: ${this.instanceId}`);

@@ -8,17 +8,33 @@
     </div>
   </div>
   <div class="row">
-    <div app-child class="col-md-6" myText="A child component goes here" (onChildMessage)="onChildMessageReceived($event)"></div>
-  </div>
-  <div app-child class="col-md-6" [myText]="secondComponentText" (onChildMessage)="onChildMessageReceived($event)"></div>
-</div>
+    <div class="col-md-6">
+      <button class="btn btn-default" type="button" (click)="firstChildComponent.myText='First child component goes here.'">
+        Set first child component text
+      </button>
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="well well-sm">
-      <p>Last message from child components: <strong> 
-           {{lastMessage}}</strong>
-      </p>
+      <button class="btn btn-default" type="button" (click)="firstChildComponent.onChildMessage.subscribe(onFirstChildComponentMessageReceived)">
+        Set first child component message output
+      </button>
+    </div>
+    
+    <div class="col-md-6">
+      <button class="btn btn-default" type="button" (click)="setSecondChildComponentProperties()">
+        Set second child component properties
+      </button>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-6 well well-sm" app-child #firstChildComponent></div>
+    <div class="col-md-6 well well-sm" app-child id="secondChildComponent"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well well-sm">
+        <p>Last message from child components: <strong>
+          {{lastMessage}}</strong></p>
+      </div>
     </div>
   </div>
 </div>
